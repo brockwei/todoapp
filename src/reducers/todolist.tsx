@@ -1,21 +1,23 @@
-interface Istate {
-    id: number;
-    status: string;
-    text: string;
-    category: string;
-}
+// Interface
+import { ITodoListState } from '../interface';
 
-export const toDoList = (state: Istate[] = [], action: { type: string, toDoItem: any }) => {
+export const todoList = (state: ITodoListState[] = [], action: { type: string, todoItem: ITodoListState }) => {
     switch (action.type) {
         case 'ADD_TODO_ITEM':
-            return state.concat(action.toDoItem);
+            let id = state.length === 0 ? 1 : (state[state.length - 1].id + 1);
+            let itemToAdd = {
+                ...action.todoItem,
+                id,
+                status: 'inactive'
+            };
+            return state.concat(itemToAdd);
         case 'TOGGLE_TODO_ITEM':
             return state.map((todo) => {
-                if (todo.id === action.toDoItem.id) {
+                if (todo.id === action.todoItem.id) {
                     let status = ['inactive', 'active', 'complete'];
                     return {
                         ...todo,
-                        status: status[(status.indexOf(action.toDoItem.status) + 1) % 3]
+                        status: status[(status.indexOf(action.todoItem.status) + 1) % 3]
                     };
                 } else {
                     return todo;
@@ -26,10 +28,12 @@ export const toDoList = (state: Istate[] = [], action: { type: string, toDoItem:
     }
 };
 
-export const changeTodoInput = (state: '', action: { type: string, text: string }) => {
+export const changeTodoInput = (state = '', action: { type: string, text: string }) => {
     switch (action.type) {
         case 'CHANGE_TODO_INPUT':
             return action.text;
+        case 'CLEAR_TODO_INPUT':
+            return '';
         default:
             return state;
     }

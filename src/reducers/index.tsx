@@ -2,10 +2,10 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 // Reducers
-import { toDoList, changeTodoInput } from './todolist';
+import { todoList, changeTodoInput } from './todolist';
 
 const reducers = combineReducers({
-    toDoList,
+    todoList,
     changeTodoInput
 });
 
