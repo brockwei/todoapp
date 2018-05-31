@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
-import { ITodoListState } from '../interface';
+import { ITodo } from '../interface';
 
-export const toggleTodoItem = (todoItem: ITodoListState) => {
+export const toggleTodoItem = (todoItem: ITodo) => {
     return (dispatch: Dispatch<Object>) => {
         dispatch({
             type: 'TOGGLE_TODO_ITEM',

@@ -4,6 +4,40 @@ body {
   font-family: sans-serif;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Common */
+.button:hover {
+  cursor: pointer;
+}
+.delete-button {
+  color: rgb(128,0,0);
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete-button:hover {
+  transform: scale(1.2);
+  color: rgb(170, 0, 0);
+  transition: 0.1s;
+}
+.add-button {
+  color: rgba(0,0,0,0.8);
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-button:hover {
+  transform: scale(1.2);
+  transition: 0.1s;
+}
+
 /* Todo Item */
 .todo-inactive {
   background: rgba(255,0,0,0.2);
@@ -13,4 +47,28 @@ body {
 }
 .todo-complete {
   text-decoration: line-through;
+}
+
+
+/* Category */
+.category-list {
+  display: flex;
+
+}
+.category-tab {
+  width: 100px;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.category-tab:hover {
+  background: rgba(0,0,0, 0.1);
+}
+.new-category-tab {
+  /* width: 100px; */
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
 }

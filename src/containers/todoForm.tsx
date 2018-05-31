@@ -27,6 +27,7 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
                     onChange={this.handleInputChange}
                     type="text"
                     value={this.props.todoInput}
+                    // onBlur={() => { console.log('blurred'); }}
                 />
                 <button
                     onClick={this.handleAddItem}
