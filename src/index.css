@@ -11,31 +11,40 @@ ul {
 }
 
 /* Common */
+.new-tab-input-field {
+  width: 60px;
+}
+.button-group {
+  display: flex;
+}
 .button:hover {
   cursor: pointer;
 }
-.delete-button {
+.icon-button {
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.1s;
+}
+.delete-icon-button {
   color: rgb(128,0,0);
-  padding: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.delete-button:hover {
-  transform: scale(1.2);
+.delete-icon-button:hover {
   color: rgb(170, 0, 0);
-  transition: 0.1s;
 }
-.add-button {
-  color: rgba(0,0,0,0.8);
-  padding: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.add-icon-button {
+  color: rgba(0,0,0,0.6);
 }
-.add-button:hover {
-  transform: scale(1.2);
-  transition: 0.1s;
+.confirm-icon-button {
+  color: rgba(0,128,0,1);
+}
+.edit-icon-button {
+  color: rgba(0,0,0,0.6);
 }
 
 /* Todo Item */
@@ -56,7 +65,7 @@ ul {
 
 }
 .category-tab {
-  width: 100px;
+  width: 120px;
   border: 1px solid rgba(0,0,0,0.2);
   padding: 10px 15px;
   display: flex;
@@ -64,6 +73,9 @@ ul {
 }
 .category-tab:hover {
   background: rgba(0,0,0, 0.1);
+}
+.active-category-tab, .active-category-tab:hover {
+  background:rgba(0,255,0,0.2);
 }
 .new-category-tab {
   /* width: 100px; */

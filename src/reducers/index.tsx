@@ -3,12 +3,14 @@ import thunk from 'redux-thunk';
 
 // Reducers
 import { todoList, changeTodoInput } from './todolistReducers';
-import { categoryList, activeCategory } from './categoryReducers';
+import { categoryList, activeCategory, changeCategoryInput, editCategoryInputId } from './categoryReducers';
 
 const reducers = combineReducers({
     // Category Reducers
     categoryList,
     activeCategory,
+    changeCategoryInput,
+    editCategoryInputId,
     // Todo List Reducers
     todoList,
     changeTodoInput,
