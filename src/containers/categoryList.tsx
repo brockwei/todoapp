@@ -39,30 +39,41 @@ class CategoryList extends React.Component<CategoryListProps, {}> {
         // Delete Category
         this.props.deleteCategory(category);
         // Set Active Category
-        this.props.setActiveCategory(this.props.categoryList[0]);
+        let newCategoryList = this.props.categoryList.filter((categoryItem) => {
+            return categoryItem.id !== category.id;
+        });
+        if (newCategoryList.length >= 1) {
+            this.props.setActiveCategory(newCategoryList[newCategoryList.length - 1]);
+        }
     }
     handleEditCategory = (category: ICategory) => {
         this.props.editCategoryInputId(category);
         this.props.changeCategoryInput(category.category);
     }
     handleConfirmCategoryInput = (category: ICategory) => {
-        this.props.editCategory(category);
-        this.props.resetCategoryInputId();
-        this.props.clearCategoryInput();
+        let categoryList = this.props.categoryList.map((categoryItem) => {
+            return categoryItem.category;
+        });
+        if (category.category && categoryList.indexOf(category.category) < 0) {
+            this.props.editCategory(category);
+            this.props.resetCategoryInputId();
+            this.props.clearCategoryInput();
+        }
     }
-    // handleCategoryInputChange = (e: any) => {
-    //     this.props.changeCategoryInput(e.currentTarget.value);
-    // }
     handleAddNewCategory = (category: ICategory) => {
         this.props.addCategory(category);
         this.props.setActiveCategory(category);
         this.handleEditCategory(category);
     }
     handleInputBlur = (category: ICategory) => {
-        // Case 1: edit == true and input not empty
-        console.log('handleblur');
-        if (this.props.editCategoryId && this.props.categoryInputText.length > 0) {
-            this.handleConfirmCategoryInput(category);
+        // Case: empty new field
+        if (!category.category) {
+            this.props.deleteCategory(category);
+            this.props.setActiveCategory(this.props.categoryList[this.props.categoryList.length - 2]);
+        } else {
+            this.props.editCategory(category);
+            this.props.resetCategoryInputId();
+            this.props.clearCategoryInput();
         }
 
     }

@@ -6,21 +6,25 @@ export const CategoryTab = (props: any) => {
     return (
         <li
             className={`button category-tab ${props.isActiveCategory ? 'active-category-tab' : ''}`}
-            onClick={() => {
-                props.handleSetActiveCategory(props.category);
-            }}
+            // onClick={() => { props.handleSetActiveCategory(props.category); }}
         >
             {/* Text/Edit Field */}
             {
                 props.isEditCategory ?
                     <input
-                        className="new-tab-input-field"
+                        className="new-tab-input-field label"
                         autoFocus={true}
                         onChange={(e) => props.handleCategoryInputChange(e.currentTarget.value)}
                         onBlur={() => props.handleInputBlur(props.category)}
                         value={props.categoryInputText}
                     />
-                    : props.category.category
+                    : 
+                    <span 
+                        className="label"
+                        onClick={() => { props.handleSetActiveCategory(props.category); }}
+                    >
+                        {props.category.category}
+                    </span>
             }
 
             {/* <input

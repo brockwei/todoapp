@@ -7,6 +7,7 @@ import { changeTodoInput, addTodoItem } from '../actions/todoForm';
 
 interface TodoFormProps {
     todoInput: string;
+    activeCategory: string;
     changeTodoInput: (text: string) => Dispatch<Object>;
     addTodoItem: (todoItem: { text: string, category: string }) => Dispatch<Object>;
 }
@@ -18,7 +19,7 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
     }
     handleAddItem = () => {
         // console.log(this.props.todoInput);
-        this.props.addTodoItem({text: this.props.todoInput, category: 'category'});
+        this.props.addTodoItem({text: this.props.todoInput, category: this.props.activeCategory});
     }
     render() {
         return (
@@ -41,7 +42,8 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
 
 function mapStateToProps(state: any) {
     return {
-        todoInput: state.changeTodoInput
+        todoInput: state.changeTodoInput,
+        activeCategory: state.activeCategory
     };
 }
 function mapDispatchToProps(dispatch: Dispatch<Object>) {

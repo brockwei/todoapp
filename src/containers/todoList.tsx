@@ -11,6 +11,7 @@ import { toggleTodoItem } from '../actions/todoList';
 
 interface TodoListProps {
     todoList: ITodo[];
+    activeCategory: string;
     toggleTodoItem: (todo: ITodo) => Dispatch<Object>;
 }
 
@@ -26,6 +27,7 @@ class TodoList extends React.Component<TodoListProps, {}> {
                 {
                     this.props.todoList.map((todo) => {
                         return (
+                            this.props.activeCategory === todo.category ?
                             <div 
                                 className={`todo-${todo.status}`}
                                 key={todo.id} 
@@ -35,6 +37,7 @@ class TodoList extends React.Component<TodoListProps, {}> {
                             >
                                 {todo.text}
                             </div>
+                            : null
                         );
                     })
                 }
@@ -45,7 +48,8 @@ class TodoList extends React.Component<TodoListProps, {}> {
 
 function mapStateToProps(state: any) {
     return {
-        todoList: state.todoList
+        todoList: state.todoList,
+        activeCategory: state.activeCategory,
     };
 }
 function mapDispatchToProps(dispatch: Dispatch<Object>) {
