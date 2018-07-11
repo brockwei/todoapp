@@ -1,0 +1,13 @@
+/* Todo Item */
+.todo-item {
+    padding: 10px;
+}
+.todo-inactive {
+    background: rgba(255,0,0,0.2);
+}
+.todo-active {
+    background: rgba(0,255,0,0.2);
+}
+.todo-complete {
+    text-decoration: line-through;
+}

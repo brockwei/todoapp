@@ -8,9 +8,13 @@ class App extends React.Component {
   public render() {
     return (
       <div className="App">
-        <CategoryList />
-        <TodoList />
-        <TodoForm />
+        <div className="app-container">
+          <TodoForm />
+          <div className="table-container">
+            <CategoryList />
+            <TodoList />
+          </div>
+        </div>
       </div>
     );
   }

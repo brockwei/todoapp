@@ -1,0 +1,32 @@
+/* Category */
+.category-list {
+    display: flex;
+}
+.category-tab {
+    width: 150px;
+    border: 1px solid rgba(0,0,0,0.2);
+    /* padding: 10px 15px; */
+    display: flex;
+    justify-content: space-between;
+}
+.category-tab:hover {
+    background: rgba(0,0,0, 0.1);
+}
+.active-category-tab, .active-category-tab:hover {
+    background:rgba(0,255,0,0.2);
+}
+.label {
+    width: 100%;
+    padding-left: 10px;
+    /* background: rgb(200,200,200,0.4); */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.new-category-tab {
+    /* width: 100px; */
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+}

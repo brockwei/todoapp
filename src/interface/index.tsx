@@ -3,7 +3,10 @@ export interface ITodo {
     status: string;
     text: string;
     category: string;
-    date: Date;
+    // date: Date;
+    // completeDate: Date;
+    date: string;
+    completeDate: string;
 }
 
 export interface ICategory {

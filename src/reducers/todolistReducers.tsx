@@ -9,7 +9,8 @@ export const todoList = (state: ITodo[] = [], action: { type: string, todoItem: 
                 ...action.todoItem,
                 id,
                 status: 'inactive',
-                date: new Date(),
+                date: (new Date()).toISOString().substring(0, 10),
+                completeDate: '',
             };
             return state.concat(itemToAdd);
         case 'TOGGLE_TODO_ITEM':
@@ -18,7 +19,9 @@ export const todoList = (state: ITodo[] = [], action: { type: string, todoItem: 
                     let status = ['inactive', 'active', 'complete'];
                     return {
                         ...todo,
-                        status: status[(status.indexOf(action.todoItem.status) + 1) % 3]
+                        status: status[(status.indexOf(action.todoItem.status) + 1) % 3],
+                        completeDate: status[(status.indexOf(action.todoItem.status) + 1) % 3] === 'complete' ? 
+                                        (new Date()).toISOString().substring(0, 10) : ''
                     };
                 } else {
                     return todo;

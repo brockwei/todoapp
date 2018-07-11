@@ -29,7 +29,7 @@ class TodoList extends React.Component<TodoListProps, {}> {
                         return (
                             this.props.activeCategory === todo.category ?
                             <div 
-                                className={`todo-${todo.status}`}
+                                className={`todo-${todo.status} todo-item`}
                                 key={todo.id} 
                                 onClick={() => {
                                     this.handleToggleTodo(todo);
