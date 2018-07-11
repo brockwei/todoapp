@@ -1,19 +1,33 @@
 /* Category */
 .category-list {
     display: flex;
+    background: rgb(44,44,44);
 }
 .category-tab {
     width: 150px;
-    border: 1px solid rgba(0,0,0,0.2);
+    background: rgb(44,44,44);
+    color: white;
+    /* border: 1px solid rgba(0,0,0,0.2); */
     /* padding: 10px 15px; */
     display: flex;
     justify-content: space-between;
+    font-size: 1.1em;
+    font-weight: 700;
 }
 .category-tab:hover {
-    background: rgba(0,0,0, 0.1);
+    background: rgb(0,0,0);
 }
 .active-category-tab, .active-category-tab:hover {
-    background:rgba(0,255,0,0.2);
+    /* background:rgba(0,255,0,0.2); */
+    /* background: rgb(64,64,64); */
+    /* background: rgb(0,0,0); */
+    background: #2196F3;
+}
+.active-category-tab:hover {
+    /* background:rgba(0,255,0,0.2); */
+    /* background: rgb(64,64,64); */
+    /* background: rgb(0,0,0); */
+    background: #0c83e4
 }
 .label {
     width: 100%;
@@ -25,7 +39,7 @@
 }
 .new-category-tab {
     /* width: 100px; */
-    border: 1px solid rgba(0,0,0,0.2);
+    /* border: 1px solid rgba(0,0,0,0.2); */
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;

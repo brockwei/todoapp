@@ -20,8 +20,9 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
     }
     handleAddItem = (e: any) => {
         e.preventDefault();
-        // console.log(this.props.todoInput);
-        this.props.addTodoItem({text: this.props.todoInput, category: this.props.activeCategory});
+        if (this.props.todoInput.length > 0) {
+            this.props.addTodoItem({text: this.props.todoInput, category: this.props.activeCategory});
+        }
     }
     test = () => {
         console.log(store.getState());
@@ -30,6 +31,7 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
         return (
             <form className="todo-form" onSubmit={this.handleAddItem}>
                 <input 
+                    className="todo-input"
                     onChange={this.handleInputChange}
                     type="text"
                     value={this.props.todoInput}
@@ -39,7 +41,7 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
                     onClick={this.test}
                     // onClick={this.handleAddItem}
                 >
-                    Add Item
+                    Add Todo
                 </button>
             </form>
         );

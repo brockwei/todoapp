@@ -1,13 +1,41 @@
 /* Todo Item */
-.todo-item {
+table {
+    border-spacing: 0px;
+    width: 100%
+}
+th, td {
+    text-align: center;
+    width: 150px;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
     padding: 10px;
 }
+th {
+    color: white;
+}
+.table-container {
+    background: rgb(84,84,84);
+}
+
+tr:nth-child(odd) {
+    background: rgb(64,64,64);
+}
+
+/* .todo-item {
+    padding: 10px;
+} */
 .todo-inactive {
-    background: rgba(255,0,0,0.2);
+    /* background: rgba(255,0,0,0.2); */
+    color: rgb(255,0,0);
 }
 .todo-active {
-    background: rgba(0,255,0,0.2);
+    /* background: rgba(0,255,0,0.2); */
+    color: rgb(255,255,255);
 }
 .todo-complete {
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
+    color: rgb(0,255,0);
+}
+.todo-item-note {
+    width: 50%;
 }

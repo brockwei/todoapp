@@ -2,12 +2,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: rgb(240,240,240);
+  font-family: 'Metrophobic', sans-serif;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+input {
+  font-family: 'Metrophobic', sans-serif;
+}
+button {
+  font-family: 'Metrophobic', sans-serif;
 }
 
 /* Common */
@@ -33,17 +42,29 @@ ul {
   transition: 0.1s;
 }
 .delete-icon-button {
-  color: rgb(128,0,0);
+  /* color: rgb(128,0,0); */
+  color: rgb(200,0,0);
 }
 .delete-icon-button:hover {
-  color: rgb(170, 0, 0);
+  /* color: rgb(170, 0, 0); */
+  color: rgb(255,0,0);
 }
-.add-icon-button {
+/* .add-icon-button {
   color: rgba(0,0,0,0.6);
-}
+} */
 .confirm-icon-button {
-  color: rgba(0,128,0,1);
+  /* color: rgba(0,128,0,1); */
+  color: rgba(0,220,0);
 }
-.edit-icon-button {
-  color: rgba(0,0,0,0.6);
+.confirm-icon-button:hover {
+  /* color: rgba(0,128,0,1); */
+  color: rgba(0,255,0);
+}
+.edit-icon-button, .add-icon-button {
+  /* color: rgba(0,0,0,0.6); */
+  color: rgba(220,220,220);
+}
+.edit-icon-button:hover, .add-icon-button:hover {
+  /* color: rgba(0,0,0,0.6); */
+  color: rgba(255,255,255);
 }

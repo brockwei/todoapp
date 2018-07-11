@@ -23,25 +23,34 @@ class TodoList extends React.Component<TodoListProps, {}> {
     }
     render() {
         return (
-            <div className="todo-list">
-                {
-                    this.props.todoList.map((todo) => {
-                        return (
-                            this.props.activeCategory === todo.category ?
-                            <div 
-                                className={`todo-${todo.status} todo-item`}
-                                key={todo.id} 
-                                onClick={() => {
-                                    this.handleToggleTodo(todo);
-                                }}
-                            >
-                                {todo.text}
-                            </div>
-                            : null
-                        );
-                    })
-                }
-            </div>
+            <table className="todo-list">
+                <tbody>
+                    <tr>
+                        <th className="todo-item-note">Todo</th>
+                        <th>Create Date</th>
+                        <th>Status</th>
+                        <th>Complete Date</th>
+                    </tr>
+                    {
+                        this.props.todoList.map((todo) => {
+                            return (
+                                this.props.activeCategory === todo.category ?
+                                <tr 
+                                    key={todo.id} 
+                                    className={`todo-${todo.status} todo-item`} 
+                                    onClick={() => { this.handleToggleTodo(todo); }}
+                                > 
+                                    <td>{todo.text}</td>
+                                    <td>{todo.date}</td>
+                                    <td>{todo.status}</td>
+                                    <td>{todo.completeDate}</td>
+                                </tr>
+                                : null
+                            );
+                        })
+                    }
+                </tbody>
+            </table>
         );
     }
 }
