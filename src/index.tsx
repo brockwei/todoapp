@@ -14,6 +14,7 @@ import 'src/stylesheets/category.css';
 import 'src/stylesheets/notes.css';
 import 'src/stylesheets/todoForm.css';
 import 'src/stylesheets/settings.css';
+import 'src/stylesheets/mobileResponsive.css';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(

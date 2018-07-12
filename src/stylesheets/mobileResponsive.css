@@ -1,0 +1,25 @@
+@media (max-width: 767px) {
+    .todo-form {
+        position: absolute;
+        bottom: 0;
+    }
+    .app-container {
+        margin: 0;
+    }
+    .table-container {
+        margin: 0;
+    }
+    .category-list {
+        flex-direction: column;
+    }
+    .category-tab {
+        width: 100%;
+        display: none;
+    }
+    .active-category-tab {
+        display: flex;
+    }
+    .new-category-tab,label {
+        margin: 0 auto;
+    }
+}
