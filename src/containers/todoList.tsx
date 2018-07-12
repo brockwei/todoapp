@@ -10,6 +10,7 @@ import { ITodo } from '../interface';
 import { toggleTodoItem } from '../actions/todoList';
 
 interface TodoListProps {
+    activeFilters: string[];
     todoList: ITodo[];
     activeCategory: string;
     toggleTodoItem: (todo: ITodo) => Dispatch<Object>;
@@ -17,8 +18,6 @@ interface TodoListProps {
 
 class TodoList extends React.Component<TodoListProps, {}> {
     handleToggleTodo = (todo: ITodo) => {
-        // console.log(this.props.todoInput);
-        // addTodoItem(this.props.todoInput);
         this.props.toggleTodoItem(todo);
     }
     render() {
@@ -27,14 +26,14 @@ class TodoList extends React.Component<TodoListProps, {}> {
                 <tbody>
                     <tr>
                         <th className="todo-item-note">Todo</th>
-                        <th>Create Date</th>
+                        <th>Create<span className="mobile-hidden"> Date</span></th>
                         <th>Status</th>
-                        <th>Complete Date</th>
+                        <th>Complete<span className="mobile-hidden"> Date</span></th>
                     </tr>
                     {
                         this.props.todoList.map((todo) => {
                             return (
-                                this.props.activeCategory === todo.category ?
+                                this.props.activeCategory === todo.category && this.props.activeFilters.indexOf(todo.status) >= 0 ?
                                 <tr 
                                     key={todo.id} 
                                     className={`todo-${todo.status} todo-item`} 
@@ -58,6 +57,7 @@ class TodoList extends React.Component<TodoListProps, {}> {
 function mapStateToProps(state: any) {
     return {
         todoList: state.todoList,
+        activeFilters: state.todoFilter,
         activeCategory: state.activeCategory,
     };
 }

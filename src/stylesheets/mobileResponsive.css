@@ -1,7 +1,6 @@
 @media (max-width: 767px) {
-    .todo-form {
-        position: absolute;
-        bottom: 0;
+    body {
+        background: rgb(44,44,44);
     }
     .app-container {
         margin: 0;
@@ -15,11 +14,23 @@
     .category-tab {
         width: 100%;
         display: none;
+        height: 50px;
+    }
+    .new-category-tab,label {
+        justify-content: center;
+    }
+    .mobile-hidden {
+        display: none;
+    }
+    .mobile-visible {
+        display: flex;
+        background: rgb(0, 82, 150);
+    }
+    .mobile-visible:hover {
+        background: #2196F3;
     }
     .active-category-tab {
         display: flex;
-    }
-    .new-category-tab,label {
-        margin: 0 auto;
+        background: #0c83e4;
     }
 }

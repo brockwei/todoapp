@@ -1,7 +1,7 @@
 // Interface
 import { ITodo } from '../interface';
 
-export const todoList = (state: ITodo[] = [], action: { type: string, todoItem: ITodo }) => {
+export const todoList = (state: ITodo[] = [], action: { type: string, todoItem: any }) => {
     switch (action.type) {
         case 'ADD_TODO_ITEM':
             let id = state.length === 0 ? 1 : (state[state.length - 1].id + 1);
@@ -27,6 +27,8 @@ export const todoList = (state: ITodo[] = [], action: { type: string, todoItem: 
                     return todo;
                 }
             });
+        case 'LOAD_TODO_LIST':
+            return action.todoItem;
         default:
             return state;
     }

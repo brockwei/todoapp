@@ -35,14 +35,17 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
                     onChange={this.handleInputChange}
                     type="text"
                     value={this.props.todoInput}
+                    placeholder="Add Todo"
                     // onBlur={() => { console.log('blurred'); }}
                 />
-                <button
-                    onClick={this.test}
-                    // onClick={this.handleAddItem}
-                >
-                    Add Todo
-                </button>
+                <div style={{ height: '53px' }}>
+                    <button
+                        onClick={this.test}
+                        // onClick={this.handleAddItem}
+                    >
+                        Add
+                    </button>
+                </div>
             </form>
         );
     }

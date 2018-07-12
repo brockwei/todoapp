@@ -21,9 +21,9 @@ tr:nth-child(odd) {
     background: rgb(64,64,64);
 }
 
-/* .todo-item {
-    padding: 10px;
-} */
+.todo-item {
+    cursor: pointer;
+}
 .todo-inactive {
     /* background: rgba(255,0,0,0.2); */
     color: rgb(255,0,0);

@@ -3,21 +3,32 @@ import * as React from 'react';
 import { DeleteButton, AddButton, ConfirmButton, EditButton } from './buttons';
 
 export const CategoryTab = (props: any) => {
+    console.log(props);
     return (
         <li
-            className={`button category-tab ${props.isActiveCategory ? 'active-category-tab' : ''}`}
+            className={`button category-tab ${props.isActiveCategory ? 'active-category-tab' : ''} ${props.mobileCategoryVisibility ? 'mobile-visible' : ''}`}
             // onClick={() => { props.handleSetActiveCategory(props.category); }}
         >
             {/* Text/Edit Field */}
             {
                 props.isEditCategory ?
-                    <input
+                    <form 
+                        style={{ paddingLeft: '0px' }}
                         className="new-tab-input-field label"
-                        autoFocus={true}
-                        onChange={(e) => props.handleCategoryInputChange(e.currentTarget.value)}
-                        onBlur={() => props.handleInputBlur(props.category)}
-                        value={props.categoryInputText}
-                    />
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            props.handleConfirmCategoryInput({ ...props.category, category: props.categoryInputText });
+                        }}
+                    >
+                        <input
+                            style={{ height: '100%' }}
+                            className="new-tab-input-field label"
+                            autoFocus={true}
+                            onChange={(e) => props.handleCategoryInputChange(e.currentTarget.value)}
+                            onBlur={() => props.handleInputBlur(props.category)}
+                            value={props.categoryInputText}
+                        />
+                    </form>
                     : 
                     <span 
                         className="label"
@@ -56,7 +67,7 @@ export const CategoryTab = (props: any) => {
 
 export const NewCategoryTab = (props: any) => {
     return (
-        <li className="new-category-tab">
+        <li className="new-category-tab" onClick={props.toggleCategoryVisibility}>
             <AddButton handleClick={props.handleAddNewCategory} addItem={{ category: '', id: props.newCategoryId }} />
         </li>
     );

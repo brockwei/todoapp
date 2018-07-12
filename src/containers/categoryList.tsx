@@ -7,7 +7,7 @@ import { ICategory } from '../interface';
 // import { TodoListProps } from '../interface';
 
 // Actions
-import { setActiveCategory, addCategory, editCategory, deleteCategory, editCategoryInputId, resetCategoryInputId, changeCategoryInput, clearCategoryInput } from '../actions';
+import { setActiveCategory, addCategory, editCategory, deleteCategory, editCategoryInputId, resetCategoryInputId, changeCategoryInput, clearCategoryInput, toggleCategoryVisibility } from '../actions';
 
 // Components
 import { CategoryTab, NewCategoryTab } from '../components/category';
@@ -18,14 +18,18 @@ interface CategoryListProps {
     categoryList: ICategory[];
     isInputActive: boolean;
     categoryInputText: string;
-    setActiveCategory: (categoryItem: ICategory) => Dispatch<Object>;
-    addCategory: (categoryItem: ICategory) => Dispatch<Object>;
-    editCategory: (categoryItem: ICategory) => Dispatch<Object>;
-    deleteCategory: (categoryItem: ICategory) => Dispatch<Object>;
-    changeCategoryInput: (text: string) => Dispatch<Object>;
-    editCategoryInputId: (categoryItem: ICategory) => Dispatch<Object>;
-    resetCategoryInputId: () => Dispatch<Object>;
-    clearCategoryInput: () => Dispatch<Object>;
+    setActiveCategory: (categoryItem: ICategory) => Dispatch<object>;
+    addCategory: (categoryItem: ICategory) => Dispatch<object>;
+    editCategory: (categoryItem: ICategory) => Dispatch<object>;
+    deleteCategory: (categoryItem: ICategory) => Dispatch<object>;
+    changeCategoryInput: (text: string) => Dispatch<object>;
+    editCategoryInputId: (categoryItem: ICategory) => Dispatch<object>;
+    resetCategoryInputId: () => Dispatch<object>;
+    clearCategoryInput: () => Dispatch<object>;
+
+    // Mobile
+    mobileCategoryVisibility: boolean;
+    toggleCategoryVisibility: () => Dispatch<object>;
 }
 
 class CategoryList extends React.Component<CategoryListProps, {}> {
@@ -103,6 +107,8 @@ class CategoryList extends React.Component<CategoryListProps, {}> {
                                 handleCategoryInputChange={this.props.changeCategoryInput}
                                 handleConfirmCategoryInput={this.handleConfirmCategoryInput}
                                 handleInputBlur={this.handleInputBlur}
+                                // Mobile
+                                mobileCategoryVisibility={this.props.mobileCategoryVisibility}
                             />
                         );
                     })
@@ -111,6 +117,8 @@ class CategoryList extends React.Component<CategoryListProps, {}> {
                     newCategoryId={this.props.categoryList[this.props.categoryList.length - 1].id + 1}
                     // handleAddNewCategory={this.props.addCategory}
                     handleAddNewCategory={this.handleAddNewCategory}
+                    // <pbo;e
+                    toggleCategoryVisibility={this.props.toggleCategoryVisibility}
                 // isInputActive={this.props.isInputActive}
                 // setNewCategoryInputField={this.props.setNewCategoryInputField}
                 // handleAddCategory={this.handleAddCategory}
@@ -130,6 +138,7 @@ function mapStateToProps(state: any) {
         categoryInputText: state.changeCategoryInput,
 
         isInputActive: state.newCategoryInputActive,
+        mobileCategoryVisibility: state.mobileCategoryVisibility
 
     };
 }
@@ -145,7 +154,9 @@ function mapDispatchToProps(dispatch: Dispatch<Object>) {
             changeCategoryInput,
             clearCategoryInput,
             editCategoryInputId,
-            resetCategoryInputId
+            resetCategoryInputId,
+            // Mobile
+            toggleCategoryVisibility
         },
         dispatch);
 }

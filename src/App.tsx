@@ -11,12 +11,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="app-container">
-          <TodoForm />
           <div className="table-container">
             <CategoryList />
             <TodoList />
             <Settings />
           </div>
+          <TodoForm />
         </div>
       </div>
     );

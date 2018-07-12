@@ -9,7 +9,16 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.save-button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    background-color: #2196F3;
+    font-size: 1.1em;
+}
+.save-button:hover {
+    background: #0c83e4;
+}
 
 .checkbox-container {
     height: 25px;
