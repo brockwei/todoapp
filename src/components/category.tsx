@@ -3,7 +3,6 @@ import * as React from 'react';
 import { DeleteButton, AddButton, ConfirmButton, EditButton } from './buttons';
 
 export const CategoryTab = (props: any) => {
-    console.log(props);
     return (
         <li
             className={`button category-tab ${props.isActiveCategory ? 'active-category-tab' : ''} ${props.mobileCategoryVisibility ? 'mobile-visible' : ''}`}

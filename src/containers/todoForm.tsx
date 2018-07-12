@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import store from 'src/reducers';
 
 // Actions
 import { changeTodoInput, addTodoItem } from '../actions/todoForm';
@@ -24,9 +23,6 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
             this.props.addTodoItem({text: this.props.todoInput, category: this.props.activeCategory});
         }
     }
-    test = () => {
-        console.log(store.getState());
-    }
     render() {
         return (
             <form className="todo-form" onSubmit={this.handleAddItem}>
@@ -40,7 +36,6 @@ class TodoForm extends React.Component<TodoFormProps, {}> {
                 />
                 <div style={{ height: '53px' }}>
                     <button
-                        onClick={this.test}
                         // onClick={this.handleAddItem}
                     >
                         Add

@@ -19,7 +19,6 @@ class Settings extends React.Component<ISettingsProps, {}> {
         let data = localStorage.getItem('todoapp');
         if (data) {
             let load = JSON.parse(data);
-            console.log(load);
             this.props.loadTodoFilter(load.todoFilter);
             this.props.loadCategoryList(load.categoryList);
             this.props.loadTodoList(load.todoList);
@@ -27,14 +26,12 @@ class Settings extends React.Component<ISettingsProps, {}> {
     }
     save = () => {
         let data: any = store.getState();
-        // let saveObj = {
-        //     categoryList: data.categoryList,
-        //     todoList: data.todoList,
-        //     todoFilter: data.todoFilter
-        // };
-        // console.log(saveObj);
-        console.log(data);
-        // localStorage.setItem('todoapp', JSON.stringify(saveObj));
+        let saveObj = {
+            categoryList: data.categoryList,
+            todoList: data.todoList,
+            todoFilter: data.todoFilter
+        };
+        localStorage.setItem('todoapp', JSON.stringify(saveObj));
     }
     clickCheckbox = (e: any) => {
         this.props.toggleTodoFilter(e.currentTarget.value);
