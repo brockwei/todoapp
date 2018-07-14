@@ -14,7 +14,6 @@ interface TodoFormProps {
 
 class TodoForm extends React.Component<TodoFormProps, {}> {
     handleInputChange = (e: any) => {
-        // console.log(e.currentTarget.value);
         this.props.changeTodoInput(e.currentTarget.value);
     }
     handleAddItem = (e: any) => {

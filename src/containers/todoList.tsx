@@ -2,18 +2,21 @@ import * as React from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { DeleteButton } from 'src/components/buttons';
+
 // Interfaces
 import { ITodo } from '../interface';
 // import { TodoListProps } from '../interface';
 
 // Actions
-import { toggleTodoItem } from '../actions/todoList';
+import { toggleTodoItem, deleteTodoItem } from '../actions/todoList';
 
 interface TodoListProps {
     activeFilters: string[];
     todoList: ITodo[];
     activeCategory: string;
-    toggleTodoItem: (todo: ITodo) => Dispatch<Object>;
+    toggleTodoItem: (todo: ITodo) => Dispatch<object>;
+    deleteTodoItem: (todo: ITodo) => Dispatch<object>;
 }
 
 class TodoList extends React.Component<TodoListProps, {}> {
@@ -39,7 +42,7 @@ class TodoList extends React.Component<TodoListProps, {}> {
                                     className={`todo-${todo.status} todo-item`} 
                                     onClick={() => { this.handleToggleTodo(todo); }}
                                 > 
-                                    <td>{todo.text}</td>
+                                    <td><DeleteButton handleClick={this.props.deleteTodoItem} deleteItem={todo} /> {todo.text}</td>
                                     <td>{todo.date}</td>
                                     <td>{todo.status}</td>
                                     <td>{todo.completeDate}</td>
@@ -65,6 +68,7 @@ function mapDispatchToProps(dispatch: Dispatch<Object>) {
     return bindActionCreators(
         {
             toggleTodoItem,
+            deleteTodoItem
         },
         dispatch);
 }

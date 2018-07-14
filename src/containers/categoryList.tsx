@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 // Interfaces
 import { ICategory } from '../interface';
-// import { TodoListProps } from '../interface';
 
 // Actions
 import { setActiveCategory, addCategory, editCategory, deleteCategory, editCategoryInputId, resetCategoryInputId, changeCategoryInput, clearCategoryInput, toggleCategoryVisibility } from '../actions';
@@ -81,11 +80,6 @@ class CategoryList extends React.Component<CategoryListProps, {}> {
         }
 
     }
-    // handleAddCategory = (category: ICategory) => {
-    //     console.log('test');
-    //     this.props.addCategory(category);
-    //     this.props.setActiveCategory(category);
-    // }
     render() {
         return (
             <ul className="category-list">
@@ -115,13 +109,8 @@ class CategoryList extends React.Component<CategoryListProps, {}> {
                 }
                 <NewCategoryTab
                     newCategoryId={this.props.categoryList[this.props.categoryList.length - 1].id + 1}
-                    // handleAddNewCategory={this.props.addCategory}
                     handleAddNewCategory={this.handleAddNewCategory}
-                    // <pbo;e
                     toggleCategoryVisibility={this.props.toggleCategoryVisibility}
-                // isInputActive={this.props.isInputActive}
-                // setNewCategoryInputField={this.props.setNewCategoryInputField}
-                // handleAddCategory={this.handleAddCategory}
                 />
             </ul>
         );

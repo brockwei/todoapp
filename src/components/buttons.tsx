@@ -14,6 +14,7 @@ export const EditButton = (props: any) => {
 export const DeleteButton = (props: any) => {
     return (
         <div 
+            style={{ display: 'inline' }}
             className="icon-button delete-icon-button"
             onClick={() => { props.handleClick(props.deleteItem); }}
         >

@@ -36,17 +36,6 @@ export const CategoryTab = (props: any) => {
                         {props.category.category}
                     </span>
             }
-
-            {/* <input
-                className="new-tab-input-field"
-                autoFocus={true}
-                onBlur={() => {
-                    props.setNewCategoryInputField(false);
-                    props.handleNewCategoryInputChange('');
-                }}
-                onChange={(e) => props.handleNewCategoryInputChange(e.currentTarget.value)}
-                value={props.newCategoryInput}
-            /> */}
             {/* Button Group */}
             {
                 props.isActiveCategory ?

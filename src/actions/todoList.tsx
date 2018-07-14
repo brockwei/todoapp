@@ -9,3 +9,12 @@ export const toggleTodoItem = (todoItem: ITodo) => {
         });
     };
 };
+
+export const deleteTodoItem = (todoItem: any) => {
+    return (dispatch: Dispatch<Object>) => {
+        dispatch({
+            type: 'DELETE_TODO_ITEM',
+            todoItem
+        });
+    };
+};
